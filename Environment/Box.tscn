@@ -328,7 +328,8 @@ position = Vector2( 180, 180 )
 rotation = 1.5708
 
 [node name="TileMap" type="TileMap" parent="rotation_pivot"]
-position = Vector2( -180, -180 )
+position = Vector2( -179.999, 180.001 )
+rotation = 4.71239
 tile_set = SubResource( 1 )
 cell_size = Vector2( 18, 18 )
 format = 1
@@ -337,3 +338,9 @@ tile_data = PoolIntArray( 0, 1610612744, 0, 1, -1610612729, 0, 2, -1610612729, 0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/rotate = SubResource( 2 )
+
+[node name="SpawnRate" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="SpawnRate" to="." method="_on_SpawnRate_timeout"]

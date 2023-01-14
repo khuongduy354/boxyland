@@ -4,20 +4,33 @@ class_name Box
 signal rotating
 signal rotated
 
+
+export var should_spawn = true
 onready var map=$rotation_pivot/TileMap
-const VegMob = preload("res://Enemy/VegMob.tscn")
+const MobList = {
+	"VegMob": preload("res://Enemy/VegMob.tscn")
+}
 onready var rot_pivot = $rotation_pivot
 onready var a_player = $AnimationPlayer
 var rng = RandomNumberGenerator.new()
 # every X seconds, spawn 1, at random location 
+
 func _ready():
 	rng.randomize()
-
+	
+	$SpawnRate.queue_free()
+	
 func _physics_process(delta):
+	print(map.get_cell(2,2))
 	for child in map.get_children(): 
 		if child.has_method("move"):
 			child.move() 
-		
+	
+func spawn_algo(): 
+	var pos = random_pos() 
+	if map.get_cellv(pos) == -1: 
+		spawn_mob(choose_random_mob(),pos)
+
 func rotate_all(deg): 
 	if a_player.is_playing():
 		return
@@ -29,24 +42,23 @@ func rotate_all(deg):
 func after_rotate(): 
 	emit_signal("rotated")
 
-func choose_mob(): 
-	pass
-func spawn_mob(mob_type):
-	choose_mob()
-	
-	var veg = mob_type.instance()
-	var new_pos = random_spawnable_pos()
-		
-	veg.flip_mob(new_pos)
+func choose_random_mob(): 
+	var temp = rng.randi_range(0,MobList.size()-1) 
+	return MobList.values()[temp]
 
-	new_pos = map.map_to_world(new_pos,false)
-	new_pos.x += 9
-	new_pos.y += 9
-	veg.position = new_pos
+func spawn_mob(mob_type,pos):
+	var veg = mob_type.instance()
+	veg.flip_mob(pos)
+
+	pos = map.map_to_world(pos)
+	pos.x += 9
+	pos.y += 9
+	veg.position = pos
+	veg.global_position = pos
 	
 	map.add_child(veg)
 	
-func random_spawnable_pos(): 
+func random_pos(): 
 	var spawn_point
 	if is_full(): 
 		return
@@ -64,13 +76,10 @@ func random_spawnable_pos():
 	else:
 		spawn_point=Vector2(rng.randi_range(2,17),fixed)
 
-	while map.get_cellv(spawn_point) != -1: 
-		return random_spawnable_pos()
+	#while map.get_cellv(spawn_point) != -1: 
+	#	return random_pos()
 	return spawn_point
 	
-
-		
-		
 func is_full(): 
 	for i in range(0,18):
 		for j in range(0,18):
@@ -87,3 +96,8 @@ func rng_50():
 #  | 
 #  | 
 # 17,2 ----- > 17,17
+
+
+func _on_SpawnRate_timeout():
+	if should_spawn: 
+		spawn_algo()

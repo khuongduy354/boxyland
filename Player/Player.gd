@@ -37,12 +37,20 @@ func after_jump():
 	$AnimationPlayer.play("static")
 	
 func receive_hit(hitbox:Hitbox): 
+	if not hitbox.owner.is_in_group("enemy"):
+		return
 	if is_invin: 
-		$Hurtbox.set_deferred("monitoring",false)
+		return
+	if not hitbox.owner.mature: 
+		die()
 		return
 	set_hp(current_health-hitbox.damage)
+
 	is_invin =true
+	$Hurtbox.set_deferred("monitoring",false)
 	$InvinTimer.start()
+	
+	
 
 func _on_InvinTimer_timeout():
 	$Hurtbox.set_deferred("monitoring",true)

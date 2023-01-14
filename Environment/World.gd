@@ -6,10 +6,9 @@ func _ready():
 	box.connect("rotating",self,"on_rotating")
 	box.connect("rotated",self,"on_rotated")
 	
-	box.rot_pivot.rotation_degrees = 180
 	player.position = $Position2D.position
-	for i in range(10): 
-		box.spawn_mob(Box.VegMob)
+	
+	box.should_spawn=true
 
 func on_rotated(): 
 	$Player.set_physics_process(true)
