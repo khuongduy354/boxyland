@@ -1,11 +1,24 @@
 extends KinematicBody2D
-
+signal player_die
 
 var veloc = Vector2.ZERO
+export var max_health = 100
+var current_health = max_health setget set_hp
 export var accel = 5 
 export var jump_height = 100
 export var GRAVITY = 4
 
+var is_invin = false
+
+func set_hp(value): 
+	current_health = value
+	if current_health < 1: 
+		die()
+
+func die(): 
+	emit_signal("player_die")
+	queue_free()
+	
 func _ready():
 	pass 
 
@@ -24,6 +37,13 @@ func after_jump():
 	$AnimationPlayer.play("static")
 	
 func receive_hit(hitbox:Hitbox): 
-	print(hitbox.damage)
-	pass
-	
+	if is_invin: 
+		$Hurtbox.set_deferred("monitoring",false)
+		return
+	set_hp(current_health-hitbox.damage)
+	is_invin =true
+	$InvinTimer.start()
+
+func _on_InvinTimer_timeout():
+	$Hurtbox.set_deferred("monitoring",true)
+	is_invin = false
