@@ -1,0 +1,208 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://kenney_pixelplatformerfarmexpansion/Tilemap/tilemap.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Box.gd" type="Script" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "tilemap.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 133, 76, 18, 18 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tilemap.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 114, 95, 18, 18 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "tilemap.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 133, 95, 18, 18 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "tilemap.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 304, 0, 18, 18 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "tilemap.png 4"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 38, 19, 18, 18 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "tilemap.png 5"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 57, 19, 18, 18 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "tilemap.png 6"
+6/texture = ExtResource( 1 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 38, 38, 18, 18 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "tilemap.png 7"
+7/texture = ExtResource( 1 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 19, 38, 18, 18 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "tilemap.png 8"
+8/texture = ExtResource( 1 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 57, 57, 18, 18 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "tilemap.png 9"
+9/texture = ExtResource( 1 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 304, 0, 18, 18 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("rotation_pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "rotate"
+tracks/0/type = "value"
+tracks/0/path = NodePath("rotation_pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "after_rotate"
+} ]
+}
+
+[node name="Box" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="rotation_pivot" type="Node2D" parent="."]
+position = Vector2( 180, 180 )
+rotation = 1.5708
+
+[node name="TileMap" type="TileMap" parent="rotation_pivot"]
+position = Vector2( -180, -180 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 18, 18 )
+format = 1
+tile_data = PoolIntArray( 0, 1610612744, 0, 1, -1610612729, 0, 2, -1610612729, 0, 3, -1610612729, 0, 4, -1610612729, 0, 5, -1610612729, 0, 6, -1610612729, 0, 7, -1610612729, 0, 8, -1610612729, 0, 9, -1610612729, 0, 10, -1610612729, 0, 11, -1610612729, 0, 12, -1610612729, 0, 13, -1610612729, 0, 14, -1610612729, 0, 15, -1610612729, 0, 16, -1610612729, 0, 17, -1610612729, 0, 18, -1610612729, 0, 19, -1073741816, 0, 65536, 7, 0, 65537, 6, 0, 65538, 1610612740, 0, 65539, 1610612740, 0, 65540, 1610612740, 0, 65541, 1610612740, 0, 65542, 1610612740, 0, 65543, 1610612740, 0, 65544, 1610612740, 0, 65545, 1610612740, 0, 65546, 1610612740, 0, 65547, 1610612740, 0, 65548, 1610612740, 0, 65549, 1610612740, 0, 65550, 1610612740, 0, 65551, 1610612740, 0, 65552, 1610612740, 0, 65553, 1610612740, 0, 65554, 6, 0, 65555, 1610612743, 0, 131072, 7, 0, 131073, -1610612732, 0, 131090, -1073741820, 0, 131091, 1610612743, 0, 196608, 7, 0, 196609, -1610612732, 0, 196626, -1073741820, 0, 196627, 1610612743, 0, 262144, 7, 0, 262145, -1610612732, 0, 262162, -1073741820, 0, 262163, 1610612743, 0, 327680, 7, 0, 327681, -1610612732, 0, 327698, -1073741820, 0, 327699, 1610612743, 0, 393216, 7, 0, 393217, -1610612732, 0, 393234, -1073741820, 0, 393235, 1610612743, 0, 458752, 7, 0, 458753, -1610612732, 0, 458770, -1073741820, 0, 458771, 1610612743, 0, 524288, 7, 0, 524289, -1610612732, 0, 524306, -1073741820, 0, 524307, 1610612743, 0, 589824, 7, 0, 589825, -1610612732, 0, 589842, -1073741820, 0, 589843, 1610612743, 0, 655360, 7, 0, 655361, -1610612732, 0, 655378, -1073741820, 0, 655379, 1610612743, 0, 720896, 7, 0, 720897, -1610612732, 0, 720914, -1073741820, 0, 720915, 1610612743, 0, 786432, 7, 0, 786433, -1610612732, 0, 786450, -1073741820, 0, 786451, 1610612743, 0, 851968, 7, 0, 851969, -1610612732, 0, 851986, -1073741820, 0, 851987, 1610612743, 0, 917504, 7, 0, 917505, -1610612732, 0, 917522, -1073741820, 0, 917523, 1610612743, 0, 983040, 7, 0, 983041, -1610612732, 0, 983058, -1073741820, 0, 983059, 1610612743, 0, 1048576, 7, 0, 1048577, -1610612732, 0, 1048594, -1073741820, 0, 1048595, 1610612743, 0, 1114112, 7, 0, 1114113, -1610612732, 0, 1114130, -1073741820, 0, 1114131, 1610612743, 0, 1179648, 7, 0, 1179649, 6, 0, 1179650, 4, 0, 1179651, 4, 0, 1179652, 4, 0, 1179653, 4, 0, 1179654, 4, 0, 1179655, 4, 0, 1179656, 4, 0, 1179657, 4, 0, 1179658, 4, 0, 1179659, 4, 0, 1179660, 4, 0, 1179661, 4, 0, 1179662, 4, 0, 1179663, 4, 0, 1179664, 4, 0, 1179665, 4, 0, 1179666, 6, 0, 1179667, 1610612743, 0, 1245184, -1610612728, 0, 1245185, -1073741817, 0, 1245186, -1073741817, 0, 1245187, -1073741817, 0, 1245188, -1073741817, 0, 1245189, -1073741817, 0, 1245190, -1073741817, 0, 1245191, -1073741817, 0, 1245192, -1073741817, 0, 1245193, -1073741817, 0, 1245194, -1073741817, 0, 1245195, -1073741817, 0, 1245196, -1073741817, 0, 1245197, -1073741817, 0, 1245198, -1073741817, 0, 1245199, -1073741817, 0, 1245200, -1073741817, 0, 1245201, -1073741817, 0, 1245202, -1073741817, 0, 1245203, 8, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/rotate = SubResource( 2 )
