@@ -18,6 +18,7 @@ func set_hp(value):
 func die(): 
 	emit_signal("player_die")
 	queue_free()
+	get_tree().change_scene("res://GameOver.tscn")
 	
 func _ready():
 	pass 

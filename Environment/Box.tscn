@@ -340,7 +340,6 @@ anims/RESET = SubResource( 3 )
 anims/rotate = SubResource( 2 )
 
 [node name="SpawnRate" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="SpawnRate" to="." method="_on_SpawnRate_timeout"]

@@ -22,7 +22,7 @@ position = Vector2( 180, 180 )
 [node name="1" type="Sprite" parent="."]
 position = Vector2( 153, 171 )
 scale = Vector2( 1.03125, 1.38889 )
-z_index = -1
+z_index = -99
 texture = ExtResource( 4 )
 
 [node name="3" type="Sprite" parent="1"]

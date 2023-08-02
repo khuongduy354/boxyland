@@ -18,10 +18,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	
-	$SpawnRate.queue_free()
-	
 func _physics_process(delta):
-	print(map.get_cell(2,2))
 	for child in map.get_children(): 
 		if child.has_method("move"):
 			child.move() 
@@ -47,7 +44,7 @@ func choose_random_mob():
 	return MobList.values()[temp]
 
 func spawn_mob(mob_type,pos):
-	var veg = mob_type.instance()
+	var veg:EnemyBase = mob_type.instance()
 	veg.flip_mob(pos)
 
 	pos = map.map_to_world(pos)
@@ -55,6 +52,7 @@ func spawn_mob(mob_type,pos):
 	pos.y += 9
 	veg.position = pos
 	veg.global_position = pos
+	veg.z_index =-2
 	
 	map.add_child(veg)
 	
@@ -100,4 +98,5 @@ func rng_50():
 
 func _on_SpawnRate_timeout():
 	if should_spawn: 
+		print("hi")
 		spawn_algo()
