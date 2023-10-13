@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Boxybird"
-run/main_scene="res://Environment/World.tscn"
+run/main_scene="res://Game.tscn"
 config/icon="res://cute_strawberry_run.png"
 
 [display]

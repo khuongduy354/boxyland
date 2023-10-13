@@ -2,7 +2,7 @@ extends KinematicBody2D
 signal player_die
 
 var veloc = Vector2.ZERO
-export var max_health = 100
+export var max_health = 1
 var current_health = max_health setget set_hp
 export var accel = 5 
 export var jump_height = 100
@@ -12,13 +12,12 @@ var is_invin = false
 
 func set_hp(value): 
 	current_health = value
-	if current_health < 1: 
+	if current_health <=0: 
 		die()
 
 func die(): 
 	emit_signal("player_die")
 	queue_free()
-	get_tree().change_scene("res://GameOver.tscn")
 	
 func _ready():
 	pass 
