@@ -1,0 +1,81 @@
+[gd_scene format=2]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="GameTitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -90.0
+margin_top = 72.0
+margin_right = 3.00002
+margin_bottom = 86.0
+rect_scale = Vector2( 2.00366, 2.00366 )
+text = "Ragedening"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BestScore" type="Label" parent="HBoxContainer"]
+margin_top = 13.0
+margin_right = 16.0
+margin_bottom = 27.0
+text = "12"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 360.0
+margin_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+margin_left = 130.0
+margin_top = 131.0
+margin_right = 230.0
+margin_bottom = 229.0
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+text = "Play"
+
+[node name="Button2" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 100.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 100, 30 )
+text = "Shop"
+
+[node name="Button3" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 100.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 100, 30 )
+text = "Rate Us!"
+
+[node name="Mus" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = -38.0
+margin_right = 90.0
+margin_bottom = -18.0
+text = "No Music"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -32.0
+margin_bottom = -18.0
+text = "1.0.0"
