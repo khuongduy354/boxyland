@@ -45,11 +45,12 @@ config/icon="res://cute_strawberry_run.png"
 [autoload]
 
 AudioManager="*res://Utility/AudioManager.tscn"
+Global="*res://Global.gd"
 
 [display]
 
-window/size/width=360
-window/size/height=360
+window/size/width=432
+window/size/height=432
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

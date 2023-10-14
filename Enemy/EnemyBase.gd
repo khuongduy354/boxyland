@@ -62,3 +62,7 @@ func flip_mob(pos):
 		rotation_degrees = 90
 	if pos.x == 17: 
 		rotation_degrees = -90
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
