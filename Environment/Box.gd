@@ -56,9 +56,11 @@ func spawn_mob(mob_type,pos):
 	
 	map.add_child(veg)
 func get_from_pos(map:TileMap, coord: Vector2): 
-	print(map.get_children())
 	for child in map.get_children(): 
 		var lpos = map.to_local(child.global_position)
+		lpos.x = round(lpos.x)
+		lpos.y = round(lpos.y)
+		
 		if coord == lpos: 
 			return child
 	return -1
