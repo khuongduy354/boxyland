@@ -7,4 +7,4 @@ func _ready():
 
 
 func set_score(val): 
-	$Score.text=str(val)
+	$Score.update_score(val)
