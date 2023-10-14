@@ -32,6 +32,7 @@ func move():
 	move_and_slide(veloc,Vector2.UP)
 func jump():
 	veloc.y = -jump_height
+	AudioManager.play(AudioManager.WITHDRAW)
 	$AnimationPlayer.play("jump")
 func after_jump(): 
 	$AnimationPlayer.play("static")
@@ -41,15 +42,16 @@ func receive_hit(hitbox:Hitbox):
 		return
 	if is_invin: 
 		return
+		
+	# TODO: touch not mature  = die instantly, matured = -health
 	if not hitbox.owner.mature: 
 		die()
 		return
 	set_hp(current_health-hitbox.damage)
-
 	is_invin =true
 	$Hurtbox.set_deferred("monitoring",false)
 	$InvinTimer.start()
-	
+	AudioManager.play(AudioManager.COLLIDE)
 	
 
 func _on_InvinTimer_timeout():

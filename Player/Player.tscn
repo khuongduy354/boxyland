@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://cute_strawberry_run.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Utility/Hurtbox.gd" type="Script" id=3]
+[ext_resource path="res://Utility/AudioManager.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -138,14 +139,18 @@ tracks/2/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 30, 17 )
+position = Vector2( -1, 0 )
+scale = Vector2( 1.5, 1.5 )
 collision_mask = 4
 script = ExtResource( 2 )
+jump_height = 200
+GRAVITY = 10
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -5, 12, -7, 9, -5, 8, -9, 1, -9, -5, -4, -9, 2, -9, 7, -5, 7, 1, 3, 7, 5, 9, 3, 12 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -9.53674e-07, 0 )
 texture = ExtResource( 1 )
 hframes = 2
 
@@ -162,5 +167,7 @@ polygon = PoolVector2Array( -1, -11, 6, -8, 8, -6, 8, 0, 6, 3, 9, 5, 5, 9, 2, 7,
 
 [node name="InvinTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="audio" parent="." instance=ExtResource( 4 )]
 
 [connection signal="timeout" from="InvinTimer" to="." method="_on_InvinTimer_timeout"]
