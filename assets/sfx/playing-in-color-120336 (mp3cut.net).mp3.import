@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/playing-in-color-120336 (mp3cut.net).mp3-9fada9e0f2472b708538963c909c5f8b.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/playing-in-color-120336 (mp3cut.net).mp3"
+dest_files=[ "res://.import/playing-in-color-120336 (mp3cut.net).mp3-9fada9e0f2472b708538963c909c5f8b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

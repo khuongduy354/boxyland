@@ -12,6 +12,8 @@ export var damage = 30
 onready var tween = $Tween
 var should_bounce = true
 
+# wooshed sfx
+var wooshed = false
 func _ready():
 	$AnimationPlayer.play(String(current_phase))
 	$Hitbox.damage = damage
@@ -27,7 +29,7 @@ func grow():
 		mature = true
 		$Grow.disconnect("timeout",self,"grow")
 	$AnimationPlayer.play(String(current_phase))
-	pass
+	
 	
 
 func _bounce_callback():
@@ -48,6 +50,9 @@ func move():
 	if should_bounce: 
 		tween(shoot_dir)
 	else: 
+		if !wooshed: 
+			AudioManager.play(AudioManager.WOOSH)
+			wooshed = true
 		position += shoot_dir*speed
 	
 func flip_mob(pos): 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Environment/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Player/PlayerUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Utility/AudioManager.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -13,5 +14,7 @@ script = ExtResource( 2 )
 
 [node name="score_timer" type="Timer" parent="."]
 autostart = true
+
+[node name="audio" parent="." instance=ExtResource( 4 )]
 
 [connection signal="timeout" from="score_timer" to="." method="_on_score_timer_timeout"]

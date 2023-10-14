@@ -20,6 +20,7 @@ position = Vector2( -90, -36 )
 position = Vector2( 180, 180 )
 
 [node name="1" type="Sprite" parent="."]
+modulate = Color( 0.878431, 0.831373, 0.831373, 1 )
 position = Vector2( 153, 171 )
 scale = Vector2( 1.03125, 1.38889 )
 z_index = -99

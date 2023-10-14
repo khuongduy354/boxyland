@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/whoosh-6316.mp3-25dfe1edd87ab550454fe954441e5f9d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/whoosh-6316.mp3"
+dest_files=[ "res://.import/whoosh-6316.mp3-25dfe1edd87ab550454fe954441e5f9d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

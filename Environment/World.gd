@@ -7,11 +7,9 @@ func _ready():
 	box.connect("rotated",self,"on_rotated")
 	
 	player.global_position = $player_spawn.global_position
-	player.connect("player_die",self,"_on_player_die")
 	
 	box.should_spawn=true
-func _on_player_die(): 
-	get_tree().change_scene("res://GameOver.tscn")
+
 
 func on_rotated(): 
 	$Player.set_physics_process(true)

@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 func spawn_algo(): 
 	var pos = random_pos() 
-	if map.get_cellv(pos) == -1: 
+	if get_from_pos(map, pos) == -1: 
 		spawn_mob(choose_random_mob(),pos)
 
 func rotate_all(deg): 
@@ -55,7 +55,12 @@ func spawn_mob(mob_type,pos):
 	veg.z_index =-2
 	
 	map.add_child(veg)
-	
+func get_from_pos(map:TileMap, coord: Vector2): 
+	for child in map.get_children(): 
+		var lpos = map.to_local(child.global_position)
+		if coord == lpos: 
+			return child
+	return -1
 func random_pos(): 
 	var spawn_point
 	if is_full(): 
@@ -74,8 +79,8 @@ func random_pos():
 	else:
 		spawn_point=Vector2(rng.randi_range(2,17),fixed)
 
-	#while map.get_cellv(spawn_point) != -1: 
-	#	return random_pos()
+#	while map.get_cellv(spawn_point) != -1: 
+#		return random_pos()
 	return spawn_point
 	
 func is_full(): 
