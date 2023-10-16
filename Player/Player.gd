@@ -2,12 +2,15 @@ extends KinematicBody2D
 signal player_die
 
 var veloc = Vector2.ZERO
+onready var anims = $AnimatedSprite
+
 export var max_health = 1
 var current_health = max_health setget set_hp
 export var accel = 5 
-export var jump_height = 100
-export var GRAVITY = 4
+export var jump_height = 200
+export var GRAVITY = 10
 
+var is_jumping=false
 var is_invin = false
 
 func set_hp(value): 
@@ -27,15 +30,21 @@ func _physics_process(delta):
 
 func move():
 	veloc.y += GRAVITY
-	if Input.is_action_just_pressed("space"): 
+	if !is_jumping: 
+		anims.play("chickenfall")
+	else: 
+		anims.play("chickenjump")
+	if Input.is_action_just_pressed("space") and $jump_cooldown.is_stopped(): 
 		jump() 
+		is_jumping=true
+		$jump_cooldown.start()
 	move_and_slide(veloc,Vector2.UP)
 func jump():
 	veloc.y = -jump_height
 	AudioManager.play(AudioManager.WITHDRAW)
-	$AnimationPlayer.play("jump")
-func after_jump(): 
-	$AnimationPlayer.play("static")
+#	$AnimationPlayer.play("jump")
+#func after_jump(): 
+#	$AnimationPlayer.play("static")
 	
 func receive_hit(hitbox:Hitbox): 
 	if not hitbox.owner.is_in_group("enemy"):
@@ -57,3 +66,12 @@ func receive_hit(hitbox:Hitbox):
 func _on_InvinTimer_timeout():
 	$Hurtbox.set_deferred("monitoring",true)
 	is_invin = false
+
+
+func _on_AnimatedSprite_animation_finished():
+	is_jumping = false
+	pass # Replace with function body.
+
+
+func _on_flip_timer_timeout():
+	anims.scale.x = -anims.scale.x
