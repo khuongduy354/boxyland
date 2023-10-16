@@ -1,7 +1,7 @@
 extends PanelContainer
 
-onready var label = $VBoxContainer/Label
-onready var texture = $VBoxContainer/TextureRect
+onready var label = $MarginContainer/HBoxContainer/Label
+onready var texture = $MarginContainer/HBoxContainer/TextureRect
 export var score = 0
 
 func update_score(_score:int): 

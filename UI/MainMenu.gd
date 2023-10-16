@@ -6,9 +6,11 @@ func update_mute_butt():
 	var is_muted = AudioServer.is_bus_mute(0)
 	
 	if is_muted: 
-		$Mus.text = "No Music"
+		$Mus.pressed = true
+#		$Mus.text = "No Music"
 	else:
-		$Mus.text = "Music"
+		$Mus.pressed = false
+#		$Mus.text = "Music"
 func _ready():
 	AudioManager.play(AudioManager.MAIN)
 	update_mute_butt()
@@ -16,7 +18,9 @@ func _ready():
 
 
 func _on_start_pressed():
-	get_tree().change_scene("res://Game.tscn")
+#	get_tree().change_scene("res://Game.tscn")
+	AudioManager.stop_all()
+	Global.circle_trans_to("res://Game.tscn")
 
 
 func _on_Mus_pressed():
@@ -32,3 +36,7 @@ func _on_rate_us_pressed():
 	else:
 		OS.shell_open("https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME")
 
+
+
+func _on_Close_pressed():
+	pass # Replace with function body.

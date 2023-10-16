@@ -4,6 +4,9 @@ signal player_die
 var veloc = Vector2.ZERO
 onready var anims = $AnimatedSprite
 
+export var is_game_title = false
+export var title_move_speed = 4000 
+
 export var max_health = 1
 var current_health = max_health setget set_hp
 export var accel = 5 
@@ -26,8 +29,24 @@ func _ready():
 	pass 
 
 func _physics_process(delta):
-	move()
+	if is_game_title: 
+		title_move(delta) 
+	else: 
+		move()
 
+var title_state = "idle" # idle, moving, jumping
+var dir = [-1,1][randi()%2]
+func title_move(delta): 
+	veloc.y += GRAVITY
+	if !is_jumping: 
+		anims.play("chickenfall")
+	else: 
+		anims.play("chickenjump")
+	if Input.is_action_just_pressed("space") and $jump_cooldown.is_stopped(): 
+		jump() 
+		is_jumping=true
+		$jump_cooldown.start()
+	move_and_slide(veloc,Vector2.UP)
 func move():
 	veloc.y += GRAVITY
 	if !is_jumping: 
@@ -75,3 +94,14 @@ func _on_AnimatedSprite_animation_finished():
 
 func _on_flip_timer_timeout():
 	anims.scale.x = -anims.scale.x
+
+
+func _on_title_move_timeout():
+	if !is_game_title:
+		$title_move.stop() 
+		return 
+	title_state = ["moving","idle"][randi()%2]
+	if title_state == "moving": 
+		dir = [-1,1][randi()%2]
+		
+
