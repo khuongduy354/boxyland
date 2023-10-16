@@ -1,22 +1,25 @@
 extends Node2D
 
 onready var box = $Box
-onready var player = $Player
+onready var player = $ChickenPlayer
 func _ready():
 	box.connect("rotating",self,"on_rotating")
 	box.connect("rotated",self,"on_rotated")
 	
 	player.global_position = $player_spawn.global_position
 	
+	
 	box.should_spawn=true
 
 
 func on_rotated(): 
-	$Player.set_physics_process(true)
+	player.set_physics_process(true)
 	box.set_physics_process(true)
 
 func on_rotating(): 
-	$Player.set_physics_process(false)
+	player.set_physics_process(false)
+	player.anims.play("chickenrun")
+	
 	box.set_physics_process(false)
 	
 func _physics_process(delta):

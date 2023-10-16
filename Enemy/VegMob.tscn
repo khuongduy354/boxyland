@@ -233,6 +233,15 @@ collision_layer = 2
 [node name="Grow" parent="." index="2"]
 wait_time = 3.0
 
+[node name="phase2" parent="." index="3"]
+self_modulate = Color( 1, 0.83, 0.83, 1 )
+
+[node name="phase1" parent="." index="4"]
+self_modulate = Color( 1, 0.83, 0.83, 1 )
+
+[node name="phase3" parent="." index="5"]
+self_modulate = Color( 1, 0.83, 0.83, 1 )
+
 [node name="AnimationPlayer" parent="." index="6"]
 anims/RESET = SubResource( 1 )
 anims/phase1 = SubResource( 2 )

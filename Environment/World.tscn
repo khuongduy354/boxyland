@@ -1,40 +1,53 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Environment/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/World.gd" type="Script" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/ChickenPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/1.png" type="Texture" id=4]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/5.png" type="Texture" id=5]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/3.png" type="Texture" id=6]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/4.png" type="Texture" id=7]
+[ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 7/1.png" type="Texture" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Box" parent="." instance=ExtResource( 1 )]
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -90, -36 )
+[node name="ChickenPlayer" parent="." instance=ExtResource( 3 )]
 
 [node name="player_spawn" type="Position2D" parent="."]
 position = Vector2( 216, 216 )
 
 [node name="1" type="Sprite" parent="."]
-modulate = Color( 0.878431, 0.831373, 0.831373, 1 )
 position = Vector2( 153, 171 )
-scale = Vector2( 1.03125, 1.38889 )
+scale = Vector2( 1.24237, 1.67323 )
 z_index = -99
 texture = ExtResource( 4 )
 
+[node name="Bg" type="TextureRect" parent="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -325.99
+margin_top = -177.501
+margin_right = 520.01
+margin_bottom = 506.499
+rect_scale = Vector2( 0.495922, 0.376851 )
+texture = ExtResource( 8 )
+stretch_mode = 6
+
 [node name="3" type="Sprite" parent="1"]
-position = Vector2( 113.455, -32.4 )
+self_modulate = Color( 1, 0.58, 0.58, 1 )
+position = Vector2( 48.9412, -4.74336 )
 texture = ExtResource( 6 )
 
 [node name="4" type="Sprite" parent="1"]
-position = Vector2( 43.6364, 19.44 )
+self_modulate = Color( 1, 0.58, 0.58, 1 )
+position = Vector2( 27.3797, 30.8331 )
 scale = Vector2( 0.969697, 0.72 )
 texture = ExtResource( 7 )
 
 [node name="5" type="Sprite" parent="1"]
-position = Vector2( 96, -32.4 )
+self_modulate = Color( 1, 0.58, 0.58, 1 )
+position = Vector2( 19.9644, -4.74336 )
 texture = ExtResource( 5 )
