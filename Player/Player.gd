@@ -18,7 +18,11 @@ export var GRAVITY = 10
 var is_jumping=false
 var is_invin = false
 var hitted =false
-
+func flip(inp:String): 
+	if inp == "right": 
+		anims.scale.x=-1 
+	elif inp == "left": 
+		anims.scale.x=1
 func set_hp(value): 
 	current_health = value
 	if current_health <=0: 
@@ -116,6 +120,9 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_flip_timer_timeout():
+	if !is_game_title: 
+		$flip_timer.stop()
+		return 
 	anims.scale.x = -anims.scale.x
 
 

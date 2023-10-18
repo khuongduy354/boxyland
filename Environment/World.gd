@@ -23,9 +23,13 @@ func on_rotating():
 	box.set_physics_process(false)
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("s"): 
-		box.rotate_all(180)
+#	if Input.is_action_just_pressed("s"): 
+#		box.rotate_all(180)
+	if player.hitted: 
+		return
 	if Input.is_action_just_pressed("a"): 
+		player.flip("left")
 		box.rotate_all(-90)
 	if Input.is_action_just_pressed("d"): 
+		player.flip("right")
 		box.rotate_all(90)

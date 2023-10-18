@@ -352,16 +352,30 @@ anims/hit = SubResource( 76 )
 anims/jump = SubResource( 32 )
 anims/static = SubResource( 33 )
 
+[node name="InvinTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="audio" parent="." instance=ExtResource( 7 )]
+
+[node name="flip_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="jump_cooldown" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 1, 17, 4, 17, 5, 15, 5, 12, 9, 8, 9, 6, 12, 5, 14, 4, 14, -2, 12, -2, 12, -4, 8, -4, 6, -1, 1, -1, 0, -3, 3, -6, 3, -8, 1, -9, 1, -12, -2, -14, -3, -14, -5, -16, -7, -16, -9, -12, -10, -8, -11, -7, -12, -3, -14, -3, -14, 0, -13, 1, -10, 2, -9, 3, -9, 7, -7, 7, -7, 9, -4, 11, -3, 12, -2, 14, -2, 15, -4, 16, -4, 17, -2, 17 )
+
+[node name="title_move" type="Timer" parent="."]
+autostart = true
+
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PoolVector2Array( 1, 17, 4, 17, 5, 15, 5, 12, 9, 8, 9, 6, 12, 5, 14, 4, 14, -2, 12, -2, 12, -4, 8, -4, 6, -1, 1, -1, 0, -3, 3, -6, 3, -8, 1, -9, 1, -12, -2, -14, -3, -14, -5, -16, -7, -16, -9, -12, -10, -8, -11, -7, -12, -3, -14, -3, -14, 0, -13, 1, -10, 2, -9, 3, -9, 7, -7, 7, -7, 9, -4, 11, -3, 12, -2, 14, -2, 15, -4, 16, -4, 17, -2, 17 )
-
-[node name="InvinTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="audio" parent="." instance=ExtResource( 7 )]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 34 )
@@ -379,20 +393,6 @@ visible = false
 position = Vector2( -28, -55 )
 texture = ExtResource( 10 )
 
-[node name="flip_timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
-[node name="jump_cooldown" type="Timer" parent="."]
-wait_time = 0.125
-one_shot = true
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 1, 17, 4, 17, 5, 15, 5, 12, 9, 8, 9, 6, 12, 5, 14, 4, 14, -2, 12, -2, 12, -4, 8, -4, 6, -1, 1, -1, 0, -3, 3, -6, 3, -8, 1, -9, 1, -12, -2, -14, -3, -14, -5, -16, -7, -16, -9, -12, -10, -8, -11, -7, -12, -3, -14, -3, -14, 0, -13, 1, -10, 2, -9, 3, -9, 7, -7, 7, -7, 9, -4, 11, -3, 12, -2, 14, -2, 15, -4, 16, -4, 17, -2, 17 )
-
-[node name="title_move" type="Timer" parent="."]
-autostart = true
-
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="title_move" to="." method="_on_title_move_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -32,9 +32,13 @@ func rotate_all(deg):
 	if a_player.is_playing():
 		return
 	emit_signal("rotating")
-	a_player.get_animation("rotate").track_set_key_value(0,0,rot_pivot.rotation_degrees)
-	a_player.get_animation("rotate").track_set_key_value(0,1,rot_pivot.rotation_degrees+deg)
+	var rot1 = rot_pivot.rotation_degrees
+	var rot2 = rot_pivot.rotation_degrees+deg
+	
+	a_player.get_animation("rotate").track_set_key_value(0,0,rot1)
+	a_player.get_animation("rotate").track_set_key_value(0,1,rot2)
 	a_player.play("rotate")
+	rot_pivot.rotation_degrees = int(rot_pivot.rotation_degrees)%360
 	
 func after_rotate(): 
 	emit_signal("rotated")
