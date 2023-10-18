@@ -1,20 +1,18 @@
 extends CanvasLayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var animp = $AnimationPlayer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 #	$audio.play(AudioManager.OVER)
 	var player = Global.temp_player
 	add_child(player)
 	var y = (player.global_position * 1/2 * 2/3).y
 	player.global_position.y =  y
+	player.animp.play("grey")
+	animp.play("gameover_down")
 
-	pass
 
 
 
@@ -27,3 +25,8 @@ func _physics_process(delta):
 func _on_restart_pressed():
 	get_tree().change_scene("res://Game.tscn")
 	pass
+
+
+func _on_Menu_pressed():
+	get_tree().change_scene("res://UI/MainMenu.tscn")
+	pass # Replace with function body.

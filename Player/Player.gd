@@ -5,6 +5,7 @@ signal over_border
 
 var veloc = Vector2.ZERO
 onready var anims = $AnimatedSprite
+onready var animp = $AnimationPlayer
 
 export var is_game_title = false
 export var title_move_speed = 4000 

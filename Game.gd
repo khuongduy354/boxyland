@@ -26,7 +26,6 @@ func _on_over_border():
 	camPivot.scale.y=-1
 	
 func _on_landed_black(): 
-
 	Global.temp_player = player
 	$World.remove_child(player)
 	get_tree().change_scene("res://UI/GameOver.tscn")
