@@ -19,7 +19,15 @@ func _ready():
 	player.connect("landed_black",self,"_on_landed_black")
 	player.connect("over_border",self,"_on_over_border")
 	
+func score_handler(): 
+	$score_timer.stop() 
+	var highscore = ScoreSaver.load_score()
+	if player_score > highscore: 
+		ScoreSaver.save_score(player_score)
+	Global.temp_score = player_score
+
 func _on_player_die():
+	score_handler()
 	player.to_game_over_mode()
 	var camera = player.get_node("Camera2D")
 	camera.current=true

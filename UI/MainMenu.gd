@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-
+onready var hiscore = $HiScore
 func update_mute_butt(): 
 	var is_muted = AudioServer.is_bus_mute(0)
 	
@@ -12,6 +12,7 @@ func update_mute_butt():
 		$Mus.pressed = false
 #		$Mus.text = "Music"
 func _ready():
+	hiscore.update_score( ScoreSaver.load_score())
 	AudioManager.play(AudioManager.MAIN)
 	update_mute_butt()
 	Global.connect("circled_in",self,"_on_circled_in")
@@ -40,4 +41,4 @@ func _on_rate_us_pressed():
 
 
 func _on_Close_pressed():
-	pass # Replace with function body.
+	get_tree().quit()

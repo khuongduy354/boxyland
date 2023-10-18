@@ -46,6 +46,7 @@ config/icon="res://cute_strawberry_run.png"
 
 AudioManager="*res://Utility/AudioManager.tscn"
 Global="*res://Global.gd"
+ScoreSaver="*res://Utility/ScoreSaver.gd"
 
 [display]
 

@@ -2,8 +2,14 @@ extends CanvasLayer
 
 
 onready var animp = $AnimationPlayer
+	
+onready var curr_score =$CenterContainer/VBoxContainer/curr_hiscore
+onready var highest_score = $CenterContainer/VBoxContainer/highest_score
 
-
+func load_score_label(): 
+	curr_score.text += " " + str(Global.temp_score)
+	var hiscore = ScoreSaver.load_score()
+	highest_score.text += " " + str(hiscore)
 func _ready():
 #	$audio.play(AudioManager.OVER)
 	var player = Global.temp_player
@@ -11,7 +17,9 @@ func _ready():
 	var y = (player.global_position * 1/2 * 2/3).y
 	player.global_position.y =  y
 	player.animp.play("grey")
+	load_score_label()
 	animp.play("gameover_down")
+	
 
 
 
