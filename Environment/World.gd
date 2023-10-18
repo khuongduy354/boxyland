@@ -16,7 +16,12 @@ func on_rotated():
 	player.set_physics_process(true)
 	box.set_physics_process(true)
 
+	player.collisionshape.set_deferred("disabled",false) 
+	player.hurtboxshape.set_deferred("disabled",false)
 func on_rotating(): 
+	player.collisionshape.set_deferred("disabled",true) 
+	player.hurtboxshape.set_deferred("disabled",true)
+	
 	player.set_physics_process(false)
 	player.anims.play("chickenrun")
 	

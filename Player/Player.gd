@@ -6,6 +6,8 @@ signal over_border
 var veloc = Vector2.ZERO
 onready var anims = $AnimatedSprite
 onready var animp = $AnimationPlayer
+onready var collisionshape = $CollisionPolygon2D2
+onready var hurtboxshape = $Hurtbox/CollisionPolygon2D3
 
 export var is_game_title = false
 export var title_move_speed = 4000 
@@ -30,9 +32,8 @@ func set_hp(value):
 		die()
 
 func to_game_over_mode(): 
-	$CollisionPolygon2D2.set_deferred("disabled",true) 
-	$Hurtbox/CollisionPolygon2D3.set_deferred("disabled",true)
-	$flip_timer.stop()
+	collisionshape.set_deferred("disabled",true) 
+	hurtboxshape.set_deferred("disabled",true)
 
 func die(): 
 	emit_signal("player_die")
