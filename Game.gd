@@ -21,9 +21,16 @@ func _ready():
 	
 func _on_player_die():
 	player.to_game_over_mode()
-
+	var camera = player.get_node("Camera2D")
+	camera.current=true
+	if player.global_position.y < 432/2: 
+		camera.limit_bottom = 432*2
 func _on_over_border(): 
-	camPivot.scale.y=-1
+	var camera = player.get_node("Camera2D")
+	camera.limit_bottom = 432*2
+
+	pass
+#	camPivot.scale.y=-1
 	
 func _on_landed_black(): 
 	Global.temp_player = player

@@ -16,6 +16,14 @@ script = ExtResource( 2 )
 
 [node name="ChickenPlayer" parent="." instance=ExtResource( 3 )]
 
+[node name="Camera2D" type="Camera2D" parent="ChickenPlayer"]
+limit_left = 0
+limit_top = 0
+limit_right = 432
+limit_bottom = 432
+limit_smoothed = true
+smoothing_enabled = true
+
 [node name="player_spawn" type="Position2D" parent="."]
 position = Vector2( 216, 216 )
 
@@ -57,12 +65,3 @@ position = Vector2( 216, 432 )
 
 [node name="camtracker" type="Position2D" parent="pivot"]
 position = Vector2( 0, -216 )
-
-[node name="Camera2D" type="Camera2D" parent="pivot/camtracker"]
-current = true
-limit_left = 0
-limit_top = 0
-limit_right = 432
-limit_smoothed = true
-smoothing_enabled = true
-smoothing_speed = 3.0
