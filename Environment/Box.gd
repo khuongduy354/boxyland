@@ -17,7 +17,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
-	
+
 func _physics_process(delta):
 	for child in map.get_children(): 
 		if child.has_method("move"):

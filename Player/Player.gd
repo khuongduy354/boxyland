@@ -1,5 +1,7 @@
 extends KinematicBody2D
 signal player_die
+signal landed_black
+signal over_border
 
 var veloc = Vector2.ZERO
 onready var anims = $AnimatedSprite
@@ -15,15 +17,21 @@ export var GRAVITY = 10
 
 var is_jumping=false
 var is_invin = false
+var hitted =false
 
 func set_hp(value): 
 	current_health = value
 	if current_health <=0: 
 		die()
 
+func to_game_over_mode(): 
+	$CollisionPolygon2D2.set_deferred("disabled",true) 
+	$Hurtbox/CollisionPolygon2D3.set_deferred("disabled",true)
+	$flip_timer.stop()
+
 func die(): 
 	emit_signal("player_die")
-	queue_free()
+#	queue_free()
 	
 func _ready():
 	pass 
@@ -32,7 +40,19 @@ func _physics_process(delta):
 	if is_game_title: 
 		title_move(delta) 
 	else: 
-		move()
+		if hitted: 
+			if global_position.y >=432 and global_position.y < 432*3/2: 
+				emit_signal("over_border")
+			if global_position.y >= 432*3/2: 
+				yield(get_tree().create_timer(2), "timeout")
+				emit_signal("landed_black")
+				set_physics_process(false)
+				return
+			anims.play("chickenhit")
+			veloc.y += GRAVITY * 0.5
+			move_and_slide(veloc)	
+		else: 	
+			move()
 
 var title_state = "idle" # idle, moving, jumping
 var dir = [-1,1][randi()%2]
@@ -72,13 +92,16 @@ func receive_hit(hitbox:Hitbox):
 		return
 		
 	# TODO: touch not mature  = die instantly, matured = -health
-	if not hitbox.owner.mature: 
-		die()
-		return
+#	if not hitbox.owner.mature: 
+#		die()
+#		return
 	set_hp(current_health-hitbox.damage)
-	is_invin =true
-	$Hurtbox.set_deferred("monitoring",false)
-	$InvinTimer.start()
+#	is_invin =true
+#	$Hurtbox.set_deferred("monitoring",false)
+	veloc.y = -jump_height * 0.8
+	hitted = true
+#	$InvinTimer.start()
+	AudioManager.stop_all()
 	AudioManager.play(AudioManager.COLLIDE)
 	
 

@@ -14,12 +14,13 @@ func update_mute_butt():
 func _ready():
 	AudioManager.play(AudioManager.MAIN)
 	update_mute_butt()
+	Global.connect("circled_in",self,"_on_circled_in")
 
-
+func _on_circled_in(): 
+	AudioManager.stop_all()
 
 func _on_start_pressed():
 #	get_tree().change_scene("res://Game.tscn")
-	AudioManager.stop_all()
 	Global.circle_trans_to("res://Game.tscn")
 
 

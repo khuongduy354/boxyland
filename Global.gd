@@ -1,6 +1,15 @@
 extends Node
 
+signal circled_in
 
+var temp_player = null
+
+func circle_trans_to(path: String): 
+	var circle_trans = preload("res://Utility/CircleTransition.tscn").instance()
+	get_tree().root.add_child(circle_trans)
+	circle_trans.transition_to(path)
+	
+	
 func score_to_veg_path(score: int): 
 	var path = "res://kenney_pixelplatformerfarmexpansion/TierVegs/carrot.png"
 	
