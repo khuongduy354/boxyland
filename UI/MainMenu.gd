@@ -41,4 +41,4 @@ func _on_rate_us_pressed():
 
 
 func _on_Close_pressed():
-	get_tree().quit()
+	Global.circle_trans_to("res://Utility/AutoExitNode.tscn")

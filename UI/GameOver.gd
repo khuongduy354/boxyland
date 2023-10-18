@@ -31,10 +31,10 @@ func _physics_process(delta):
 #
 
 func _on_restart_pressed():
-	get_tree().change_scene("res://Game.tscn")
+	Global.circle_trans_to("res://Game.tscn")
 	pass
 
 
 func _on_Menu_pressed():
-	get_tree().change_scene("res://UI/MainMenu.tscn")
+	Global.circle_trans_to("res://UI/MainMenu.tscn")
 	pass # Replace with function body.
