@@ -21,13 +21,13 @@ limit_left = 0
 limit_top = 0
 limit_right = 432
 limit_bottom = 432
-limit_smoothed = true
 smoothing_enabled = true
 
 [node name="player_spawn" type="Position2D" parent="."]
 position = Vector2( 216, 216 )
 
 [node name="1" type="Sprite" parent="."]
+modulate = Color( 0.882353, 0.847059, 0.847059, 1 )
 position = Vector2( 153, 171 )
 scale = Vector2( 1.24237, 1.67323 )
 z_index = -99

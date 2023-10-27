@@ -2,25 +2,25 @@ extends CanvasLayer
 
 
 onready var animp = $AnimationPlayer
-	
 onready var curr_score =$CenterContainer/VBoxContainer/curr_hiscore
 onready var highest_score = $CenterContainer/VBoxContainer/highest_score
+onready var veggie_icon = $CenterContainer/VBoxContainer/Control/TextureRect
 
 func load_score_label(): 
 	curr_score.text += " " + str(Global.temp_score)
 	var hiscore = ScoreSaver.load_score()
 	highest_score.text += " " + str(hiscore)
+	
+	return Global.temp_score
 func _ready():
-#	$audio.play(AudioManager.OVER)
-	var player = Global.temp_player
-	add_child(player)
-	var y = (player.global_position * 1/2 * 2/3).y
-	player.global_position.y =  y
-	player.animp.play("grey")
-	load_score_label()
+
+	var current_score = load_score_label()
+	
+	var path = Global.score_to_veg_path(current_score)
+	veggie_icon.texture = load(path)
+	yield(get_tree().create_timer(.5),"timeout")
 	animp.play("gameover_down")
 	
-
 
 
 

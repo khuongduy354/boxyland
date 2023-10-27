@@ -25,6 +25,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=82]
 resource_name = "grey"
@@ -39,6 +51,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.227451, 0.192157, 0.192157, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -45.0 ]
 }
 
 [sub_resource type="Animation" id=76]
@@ -67,13 +91,13 @@ length = 0.3
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 32, 34 )
 
-[sub_resource type="AtlasTexture" id=77]
-atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 32, 34 )
-
 [sub_resource type="AtlasTexture" id=78]
 atlas = ExtResource( 11 )
 region = Rect2( 32, 0, 32, 34 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 32, 34 )
 
 [sub_resource type="AtlasTexture" id=79]
 atlas = ExtResource( 11 )
@@ -306,7 +330,7 @@ animations = [ {
 "name": "chickenfall",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ) ],
+"frames": [ SubResource( 78 ), SubResource( 77 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ) ],
 "loop": false,
 "name": "chickenhit",
 "speed": 10.0

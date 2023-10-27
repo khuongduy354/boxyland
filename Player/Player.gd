@@ -32,7 +32,7 @@ func set_hp(value):
 		die()
 
 func to_game_over_mode(): 
-	collisionshape.set_deferred("disabled",true) 
+#	collisionshape.set_deferred("disabled",true) 
 	hurtboxshape.set_deferred("disabled",true)
 
 func die(): 
@@ -42,21 +42,23 @@ func die():
 func _ready():
 	pass 
 
+var game_over_jumped = false
 func _physics_process(delta):
 	if is_game_title: 
 		title_move(delta) 
 	else: 
 		if hitted: 
-			if global_position.y >=432 and global_position.y < 432*3/2: 
-				emit_signal("over_border")
-			if global_position.y >= 432*3/2: 
-				yield(get_tree().create_timer(2), "timeout")
+#			if global_position.y >=432 and global_position.y < 432*3/2: 
+#				emit_signal("over_border")
+			var should_to_gameover = game_over_jumped and is_on_floor()
+			if should_to_gameover: 
 				emit_signal("landed_black")
 				set_physics_process(false)
 				return
 			anims.play("chickenhit")
-			veloc.y += GRAVITY * 0.5
-			move_and_slide(veloc)	
+			veloc.y += GRAVITY * 1.5 
+			game_over_jumped=true
+			move_and_slide(veloc,Vector2.UP)	
 		else: 	
 			move()
 
@@ -104,7 +106,7 @@ func receive_hit(hitbox:Hitbox):
 	set_hp(current_health-hitbox.damage)
 #	is_invin =true
 #	$Hurtbox.set_deferred("monitoring",false)
-	veloc.y = -jump_height * 0.8
+	veloc.y = -jump_height * 1.8 
 	hitted = true
 #	$InvinTimer.start()
 	AudioManager.stop_all()
@@ -118,8 +120,6 @@ func _on_InvinTimer_timeout():
 
 func _on_AnimatedSprite_animation_finished():
 	is_jumping = false
-	pass # Replace with function body.
-
 
 func _on_flip_timer_timeout():
 	if !is_game_title: 

@@ -4,6 +4,7 @@ extends Node2D
 onready var player = $World.player
 onready var playerUI = $PlayerUI
 onready var camPivot = $World/pivot
+onready var anim_s = $AnimationPlayer
 
 var player_score = 0 setget set_score 
 
@@ -29,21 +30,27 @@ func score_handler():
 func _on_player_die():
 	score_handler()
 	player.to_game_over_mode()
-	var camera = player.get_node("Camera2D")
-	camera.current=true
-	if player.global_position.y < 432/2: 
-		camera.limit_bottom = 432*2
-func _on_over_border(): 
-	var camera = player.get_node("Camera2D")
-	camera.limit_bottom = 432*2
+#	var camera = player.get_node("Camera2D")
+#	camera.current=true
+#	if player.global_position.y < 432/2: 
+#		camera.limit_bottom = 432*2
 
+
+func _on_over_border(): 
+#	var camera = player.get_node("Camera2D")
+#	camera.limit_bottom = 432*2
 	pass
 #	camPivot.scale.y=-1
 	
 func _on_landed_black(): 
+#	anim_s.play("game_over_transistion")
+#	yield(anim_s,"animation_finished")
+	yield(get_tree().create_timer(.1),"timeout")
+#	$World.remove_child(player)	
+	get_tree().root.add_child(player)
+#	remove_child(player)
 	Global.temp_player = player
-	$World.remove_child(player)
-	get_tree().change_scene("res://UI/GameOver.tscn")
+	Global.circle_trans_to("res://UI/GameOver.tscn",1.3)
 
 func _on_score_timer_timeout():
 	set_score(player_score+1)

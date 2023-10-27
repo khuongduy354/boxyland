@@ -1,17 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Environment/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Player/PlayerUI.tscn" type="PackedScene" id=3]
 
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "game_over_transistion"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_top = 432.0
-margin_right = 432.0
-margin_bottom = 864.0
-color = Color( 0, 0, 0, 1 )
 
 [node name="World" parent="." instance=ExtResource( 1 )]
 
@@ -19,5 +44,15 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="score_timer" type="Timer" parent="."]
 autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 432.0
+margin_bottom = 432.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/game_over_transistion = SubResource( 2 )
 
 [connection signal="timeout" from="score_timer" to="." method="_on_score_timer_timeout"]

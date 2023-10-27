@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Utility/AudioManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/GameOver.tres" type="Theme" id=3]
 [ext_resource path="res://assets/Fonts/Tsuki/NineTsuki.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://kenney_pixelplatformerfarmexpansion/TierVegs/bucket.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -320,11 +321,21 @@ margin_bottom = 132.0
 theme = ExtResource( 3 )
 text = "Highest Score:"
 
-[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+[node name="Control" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 136.0
 margin_right = 298.0
 margin_bottom = 286.0
 rect_min_size = Vector2( 0, 150 )
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Control"]
+margin_left = 117.0
+margin_top = 43.0
+margin_right = 181.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
 visible = false
@@ -359,6 +370,7 @@ text = "Menu"
 [node name="audio" parent="." instance=ExtResource( 2 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.0
 anims/RESET = SubResource( 6 )
 anims/gameover_down = SubResource( 5 )
 
