@@ -16,9 +16,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #	-> circle in root 
 	if anim_name == "circle_in":
 		Global.emit_signal("circled_in")
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(.1), "timeout")
 		get_tree().change_scene(file)
-		yield(get_tree().create_timer(.5), "timeout")
+		yield(get_tree().create_timer(.3), "timeout")
 		
 		animp.play("circle_out")
 	if anim_name == "circle_out": 

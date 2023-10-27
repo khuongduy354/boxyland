@@ -18,7 +18,6 @@ func _ready():
 	
 	var path = Global.score_to_veg_path(current_score)
 	veggie_icon.texture = load(path)
-	yield(get_tree().create_timer(.5),"timeout")
 	animp.play("gameover_down")
 	
 

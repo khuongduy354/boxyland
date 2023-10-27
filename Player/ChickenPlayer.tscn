@@ -1,10 +1,11 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Utility/Hurtbox.gd" type="Script" id=2]
 [ext_resource path="res://assets/Enemies/Bunny/Jump.png" type="Texture" id=3]
 [ext_resource path="res://assets/Enemies/Radish/Run (30x38).png" type="Texture" id=4]
 [ext_resource path="res://assets/Enemies/Bunny/Run (34x44).png" type="Texture" id=5]
+[ext_resource path="res://assets/light.png" type="Texture" id=6]
 [ext_resource path="res://Utility/AudioManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/Enemies/Bunny/Fall.png" type="Texture" id=8]
 [ext_resource path="res://assets/Enemies/Chicken/Idle (32x34).png" type="Texture" id=9]
@@ -416,6 +417,10 @@ texture = ExtResource( 9 )
 visible = false
 position = Vector2( -28, -55 )
 texture = ExtResource( 10 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 6 )
+energy = 0.2
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="title_move" to="." method="_on_title_move_timeout"]

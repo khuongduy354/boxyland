@@ -106,7 +106,7 @@ func receive_hit(hitbox:Hitbox):
 	set_hp(current_health-hitbox.damage)
 #	is_invin =true
 #	$Hurtbox.set_deferred("monitoring",false)
-	veloc.y = -jump_height * 1.8 
+	veloc.y = -jump_height * 1.5 
 	hitted = true
 #	$InvinTimer.start()
 	AudioManager.stop_all()

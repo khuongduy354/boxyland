@@ -50,7 +50,7 @@ func _on_landed_black():
 	get_tree().root.add_child(player)
 #	remove_child(player)
 	Global.temp_player = player
-	Global.circle_trans_to("res://UI/GameOver.tscn",1.3)
+	Global.circle_trans_to("res://UI/GameOver.tscn",1.5)
 
 func _on_score_timer_timeout():
 	set_score(player_score+1)
