@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Environment/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/World.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/3.png" type="Texture" id=6]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/4.png" type="Texture" id=7]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 7/1.png" type="Texture" id=8]
+[ext_resource path="res://Utility/SwipeDetector.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
@@ -65,3 +66,5 @@ position = Vector2( 216, 432 )
 
 [node name="camtracker" type="Position2D" parent="pivot"]
 position = Vector2( 0, -216 )
+
+[node name="SwipeDetector" parent="." instance=ExtResource( 9 )]
