@@ -71,6 +71,7 @@ func spawn_mob(mob_type,pos):
 	
 	veg.z_index =-2
 	veg.speed+=mob_extra_speed
+	
 	map.add_child(veg)
 	
 func _veg_flied(pos:Vector2): 
@@ -80,8 +81,8 @@ func _veg_flied(pos:Vector2):
 			return
 	
 func is_pos_occupied(map:TileMap, coord: Vector2): 
-	if visited.has(coord):
-		return true
+#	if visited.has(coord):
+#		return true
 	return false
 func random_pos(): 
 	var spawn_point
