@@ -17,6 +17,7 @@ var current_health = max_health setget set_hp
 export var accel = 5 
 export var jump_height = 200
 export var GRAVITY = 10
+export var MAX_GRAVITY = 100
 
 var is_jumping=false
 var is_invin = false
@@ -65,7 +66,9 @@ func _physics_process(delta):
 var title_state = "idle" # idle, moving, jumping
 var dir = [-1,1][randi()%2]
 func title_move(delta): 
-	veloc.y += GRAVITY
+	veloc.y += GRAVITY 
+	if is_on_floor():
+		veloc.y=0
 	if !is_jumping: 
 		anims.play("chickenfall")
 	else: 
