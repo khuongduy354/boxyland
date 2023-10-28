@@ -1,7 +1,7 @@
 extends Node2D
 
 
-enum {MAIN, WOOSH, WITHDRAW, COLLIDE, OVER}
+enum {MAIN, WOOSH, WITHDRAW, COLLIDE, OVER,GAME, WALKING}
 func play(inp): 
 	var audio = null 
 	match inp: 
@@ -10,6 +10,8 @@ func play(inp):
 		WITHDRAW: audio = $Withdraw
 		COLLIDE: audio = $Collide 
 		OVER: audio = $GameOver
+		GAME: audio = $GameTheme
+		WALKING: audio = $Walking
 	audio.play()
 func stop_all(): 
 	for child in get_children(): 

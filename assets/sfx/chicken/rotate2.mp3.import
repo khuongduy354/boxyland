@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rotate2.mp3-c10d54d47ec760ea544273949d6a8a56.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/chicken/rotate2.mp3"
+dest_files=[ "res://.import/rotate2.mp3-c10d54d47ec760ea544273949d6a8a56.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

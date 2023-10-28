@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hit.mp3-da5538dd0e6dee8529584cd69d98dc73.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/chicken/hit.mp3"
+dest_files=[ "res://.import/hit.mp3-da5538dd0e6dee8529584cd69d98dc73.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -13,7 +13,7 @@ func load_score_label():
 	
 	return Global.temp_score
 func _ready():
-
+	AudioManager.play(AudioManager.OVER)
 	var current_score = load_score_label()
 	
 	var path = Global.score_to_veg_path(current_score)

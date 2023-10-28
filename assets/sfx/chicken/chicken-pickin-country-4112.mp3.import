@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chicken-pickin-country-4112.mp3-7caca8941591de1ba385b0a2db4cc44c.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/chicken/chicken-pickin-country-4112.mp3"
+dest_files=[ "res://.import/chicken-pickin-country-4112.mp3-7caca8941591de1ba385b0a2db4cc44c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

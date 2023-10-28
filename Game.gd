@@ -14,7 +14,7 @@ func set_score(val):
 	playerUI.set_score(val)
 
 func _ready():
-	AudioManager.play(AudioManager.MAIN)
+	AudioManager.play(AudioManager.GAME)
 	
 	player.connect("player_die",self,"_on_player_die")
 	player.connect("landed_black",self,"_on_landed_black")

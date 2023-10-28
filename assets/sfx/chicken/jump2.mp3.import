@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jump2.mp3-87c2aa67f66472356e8a69462c84c558.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/chicken/jump2.mp3"
+dest_files=[ "res://.import/jump2.mp3-87c2aa67f66472356e8a69462c84c558.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

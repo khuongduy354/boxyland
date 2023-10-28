@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/sfx/cartoon-jump-6462.mp3" type="AudioStream" id=1]
-[ext_resource path="res://assets/sfx/punch-6-166699.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/chicken/jump2.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/sfx/chicken/hit.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/sfx/whoosh-6316.mp3" type="AudioStream" id=3]
-[ext_resource path="res://assets/sfx/videogame-death-sound-43894.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/chicken/gameover.mp3" type="AudioStream" id=4]
 [ext_resource path="res://assets/sfx/playing-in-color-120336 (mp3cut.net).mp3" type="AudioStream" id=5]
 [ext_resource path="res://Utility/AudioManager.gd" type="Script" id=6]
+[ext_resource path="res://assets/sfx/chicken/chicken-pickin-country-4112.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/chicken/rotate2.mp3" type="AudioStream" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -21,11 +23,20 @@ volume_db = 20.0
 [node name="Withdraw" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 volume_db = 5.0
+pitch_scale = 0.95
 
 [node name="Collide" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
-volume_db = 20.0
+volume_db = 15.0
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-volume_db = 20.0
+volume_db = 24.0
+
+[node name="GameTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = 10.0
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = 10.0

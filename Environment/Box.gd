@@ -29,6 +29,7 @@ func spawn_algo():
 		spawn_mob(choose_random_mob(),pos)
 
 func rotate_all(deg): 
+	AudioManager.play(AudioManager.WALKING)
 	if a_player.is_playing():
 		return
 	emit_signal("rotating")
