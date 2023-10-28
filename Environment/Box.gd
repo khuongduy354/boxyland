@@ -16,6 +16,7 @@ onready var rot_pivot = $rotation_pivot
 onready var a_player = $AnimationPlayer
 onready var spawn_timer = $SpawnRate
 
+var visited = []
 
 var rng = RandomNumberGenerator.new()
 # every X seconds, spawn 1, at random location 
@@ -30,7 +31,7 @@ func _physics_process(delta):
 	
 func spawn_algo(): 
 	var pos = random_pos() 
-	if get_from_pos(map, pos) == -1: 
+	if !is_pos_occupied(map, pos): 
 		spawn_mob(choose_random_mob(),pos)
 
 func rotate_all(deg): 
@@ -56,25 +57,32 @@ func choose_random_mob():
 func spawn_mob(mob_type,pos):
 	var veg:EnemyBase = mob_type.instance()
 	veg.flip_mob(pos)
+	
+	# TODO: fix
+	visited.push_back(pos)
+	veg.connect("flied",self,"_veg_flied")
+	veg.map_pos = pos
 
 	pos = map.map_to_world(pos)
 	pos.x += 9
 	pos.y += 9
-	veg.position = pos
 	veg.global_position = pos
+	
+	
 	veg.z_index =-2
 	veg.speed+=mob_extra_speed
-	
 	map.add_child(veg)
-func get_from_pos(map:TileMap, coord: Vector2): 
-	for child in map.get_children(): 
-		var lpos = map.to_local(child.global_position)
-		lpos.x = round(lpos.x)
-		lpos.y = round(lpos.y)
-		
-		if coord == lpos: 
-			return child
-	return -1
+	
+func _veg_flied(pos:Vector2): 
+	for i in range(visited.size()): 
+		if visited[i] == pos: 
+			visited.pop_at(i)
+			return
+	
+func is_pos_occupied(map:TileMap, coord: Vector2): 
+	if visited.has(coord):
+		return true
+	return false
 func random_pos(): 
 	var spawn_point
 	if is_full(): 
@@ -111,5 +119,4 @@ func rng_50():
 
 func _on_SpawnRate_timeout():
 	if should_spawn: 
-		print("hi")
 		spawn_algo()

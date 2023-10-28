@@ -1,6 +1,10 @@
 extends KinematicBody2D
 class_name EnemyBase 
 
+# TODO: fix 
+signal flied
+var map_pos = Vector2.ZERO
+
 export var spawn_chance = 10
 export var grow_time = 3
 export var phases = 2 
@@ -20,9 +24,7 @@ func _ready():
 	add_to_group("enemy")
 	$Grow.wait_time = grow_time
 
-func _physics_process(delta):
-	pass 
-	
+
 func grow(): 
 	current_phase+=1
 	if current_phase >= phases: 
@@ -53,6 +55,7 @@ func move():
 		if !wooshed: 
 			AudioManager.play(AudioManager.WOOSH)
 			wooshed = true
+			emit_signal("flied",map_pos)
 		position += shoot_dir*speed
 	
 func flip_mob(pos): 
