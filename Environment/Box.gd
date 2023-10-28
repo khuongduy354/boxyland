@@ -108,12 +108,6 @@ func rng_50():
 	if rng.randi_range(1,10) >5: 
 		return true
 
-# working range 
-# 2,2  ----- > 2,17
-#  | 
-#  | 
-# 17,2 ----- > 17,17
-
 
 func _on_SpawnRate_timeout():
 	if should_spawn: 

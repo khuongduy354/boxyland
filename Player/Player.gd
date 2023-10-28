@@ -4,10 +4,12 @@ signal landed_black
 signal over_border
 
 var veloc = Vector2.ZERO
-onready var anims = $AnimatedSprite
+onready var anims = $flip_pivot/AnimatedSprite
 onready var animp = $AnimationPlayer
 onready var collisionshape = $CollisionPolygon2D2
-onready var hurtboxshape = $Hurtbox/CollisionPolygon2D3
+onready var hurtbox  = $flip_pivot/Hurtbox
+onready var hurtboxshape = $flip_pivot/Hurtbox/CollisionPolygon2D3
+onready var fpivot = $flip_pivot
 
 export var is_game_title = false
 export var title_move_speed = 4000 
@@ -24,9 +26,9 @@ var is_invin = false
 var hitted =false
 func flip(inp:String): 
 	if inp == "right": 
-		anims.scale.x=-1 
+		fpivot.scale.x=-1 
 	elif inp == "left": 
-		anims.scale.x=1
+		fpivot.scale.x=1
 func set_hp(value): 
 	current_health = value
 	if current_health <=0: 
@@ -114,11 +116,6 @@ func receive_hit(hitbox:Hitbox):
 #	$InvinTimer.start()
 	AudioManager.stop_all()
 	AudioManager.play(AudioManager.COLLIDE)
-	
-
-func _on_InvinTimer_timeout():
-	$Hurtbox.set_deferred("monitoring",true)
-	is_invin = false
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -128,7 +125,7 @@ func _on_flip_timer_timeout():
 	if !is_game_title: 
 		$flip_timer.stop()
 		return 
-	anims.scale.x = -anims.scale.x
+	fpivot.scale.x = -fpivot.scale.x
 
 
 func _on_title_move_timeout():

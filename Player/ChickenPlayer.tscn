@@ -396,32 +396,34 @@ polygon = PoolVector2Array( 1, 17, 4, 17, 5, 15, 5, 12, 9, 8, 9, 6, 12, 5, 14, 4
 [node name="title_move" type="Timer" parent="."]
 autostart = true
 
-[node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource( 2 )
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 6 )
+energy = 0.2
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Hurtbox"]
-polygon = PoolVector2Array( 1, 17, 4, 17, 5, 15, 5, 12, 9, 8, 9, 6, 12, 5, 14, 4, 14, -2, 12, -2, 12, -4, 8, -4, 6, -1, 1, -1, 0, -3, 3, -6, 3, -8, 1, -9, 1, -12, -2, -14, -3, -14, -5, -16, -7, -16, -9, -12, -10, -8, -11, -7, -12, -3, -14, -3, -14, 0, -13, 1, -10, 2, -9, 3, -9, 7, -7, 7, -7, 9, -4, 11, -3, 12, -2, 14, -2, 15, -4, 16, -4, 17, -2, 17 )
+[node name="flip_pivot" type="Position2D" parent="."]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="flip_pivot"]
 frames = SubResource( 34 )
 animation = "chickenhit"
 frame = 4
 playing = true
 
-[node name="Idle(32X34)" type="Sprite" parent="AnimatedSprite"]
+[node name="Idle(32X34)" type="Sprite" parent="flip_pivot/AnimatedSprite"]
 visible = false
 position = Vector2( -28, -91 )
 texture = ExtResource( 9 )
 
-[node name="Run(32X34)" type="Sprite" parent="AnimatedSprite"]
+[node name="Run(32X34)" type="Sprite" parent="flip_pivot/AnimatedSprite"]
 visible = false
 position = Vector2( -28, -55 )
 texture = ExtResource( 10 )
 
-[node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 6 )
-energy = 0.2
+[node name="Hurtbox" type="Area2D" parent="flip_pivot"]
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="flip_pivot/Hurtbox"]
+polygon = PoolVector2Array( 1, 17, 4, 17, 5, 15, 5, 12, 9, 8, 9, 6, 12, 5, 14, 4, 14, -2, 12, -2, 12, -4, 8, -4, 6, -1, 1, -1, 0, -3, 3, -6, 3, -8, 1, -9, 1, -12, -2, -14, -3, -14, -5, -16, -7, -16, -9, -12, -10, -8, -11, -7, -12, -3, -14, -3, -14, 0, -13, 1, -10, 2, -9, 3, -9, 7, -7, 7, -7, 9, -4, 11, -3, 12, -2, 14, -2, 15, -4, 16, -4, 17, -2, 17 )
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="title_move" to="." method="_on_title_move_timeout"]
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="flip_pivot/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
