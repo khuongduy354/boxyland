@@ -325,6 +325,7 @@ script = ExtResource( 2 )
 
 [node name="rotation_pivot" type="Node2D" parent="."]
 position = Vector2( 216, 216 )
+rotation = 1.5708
 
 [node name="TileMap" type="TileMap" parent="rotation_pivot"]
 position = Vector2( -179.999, 179.998 )

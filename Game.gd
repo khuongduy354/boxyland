@@ -67,3 +67,4 @@ func _on_score_timer_timeout():
 	# adjust difficulties 
 	box.spawn_timer.wait_time = Global.score_to_spawnrate(new_score)
 	box.mob_extra_speed = Global.score_to_extra_speed(new_score)
+

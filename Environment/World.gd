@@ -12,15 +12,8 @@ func _ready():
 	
 	
 	box.should_spawn=true
-func _on_swipe(dir:Vector2): 
-	if player.hitted: 
-		return
-	if dir == Vector2.RIGHT: 
-		player.flip("right")
-		box.rotate_all(90)
-	elif dir== Vector2.LEFT: 
-		player.flip("left")
-		box.rotate_all(-90)
+
+
 func on_rotated(): 
 	player.set_physics_process(true)
 	box.set_physics_process(true)
@@ -37,3 +30,32 @@ func on_rotating():
 	box.set_physics_process(false)
 	
 
+
+func rotate_trigger(dir:Vector2): 
+	if player.hitted: 
+		return
+	if dir == Vector2.RIGHT: 
+		player.flip("right")
+		box.rotate_all(90)
+	elif dir == Vector2.LEFT: 
+		player.flip("left")
+		box.rotate_all(-90)
+
+
+
+
+
+func _on_SideButtons_right():
+	rotate_trigger(Vector2.RIGHT)
+
+
+func _on_SideButtons_center():
+	Input.action_press("space")
+
+
+func _on_SideButtons_left():
+	rotate_trigger(Vector2.LEFT)
+
+
+func _on_SwipeDetector_swipe(dir:Vector2):	
+	rotate_trigger(dir)

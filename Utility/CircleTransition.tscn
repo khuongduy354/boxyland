@@ -55,6 +55,7 @@ tracks/0/keys = {
 }
 
 [node name="CircleTrans" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 2 )
 
 [node name="CircleTransition" type="ColorRect" parent="."]

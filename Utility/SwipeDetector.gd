@@ -1,8 +1,9 @@
 extends Node2D
 
 signal swipe
+signal tap
 
-export var length = 100 
+export var length = 50
 var startPos:Vector2
 var currPos:Vector2
 var isSwiping = false 
@@ -25,7 +26,6 @@ func _process(delta):
 					else: 
 						emit_signal("swipe",Vector2.RIGHT)
 					isSwiping = false 
-						
 	else: 
 		isSwiping = false
 

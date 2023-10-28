@@ -1,9 +1,8 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Utility/Hurtbox.gd" type="Script" id=2]
 [ext_resource path="res://assets/Enemies/Bunny/Jump.png" type="Texture" id=3]
-[ext_resource path="res://assets/Enemies/Radish/Run (30x38).png" type="Texture" id=4]
 [ext_resource path="res://assets/Enemies/Bunny/Run (34x44).png" type="Texture" id=5]
 [ext_resource path="res://assets/light.png" type="Texture" id=6]
 [ext_resource path="res://Utility/AudioManager.tscn" type="PackedScene" id=7]
@@ -277,51 +276,39 @@ atlas = ExtResource( 5 )
 region = Rect2( 374, 0, 34, 44 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 4 )
 region = Rect2( 30, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 4 )
 region = Rect2( 60, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 4 )
 region = Rect2( 90, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 4 )
 region = Rect2( 120, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 4 )
 region = Rect2( 150, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 4 )
 region = Rect2( 180, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 4 )
 region = Rect2( 210, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 4 )
 region = Rect2( 240, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 4 )
 region = Rect2( 270, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 4 )
 region = Rect2( 300, 0, 30, 38 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 4 )
 region = Rect2( 330, 0, 30, 38 )
 
 [sub_resource type="SpriteFrames" id=34]

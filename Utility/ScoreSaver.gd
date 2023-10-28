@@ -11,7 +11,12 @@ func load_score():
 		var highscore = int(content)
 		f.close()
 		return highscore
-
+	else: 
+		var file = File.new()
+		file.open(score_file, File.WRITE)
+		file.store_string("0")
+		file.close()
+		return 0 
 # call this at game end to store a new highscore
 func save_score(_score):
 	var f = File.new()
