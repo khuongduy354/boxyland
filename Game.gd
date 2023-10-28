@@ -35,7 +35,14 @@ func _on_player_die():
 #	if player.global_position.y < 432/2: 
 #		camera.limit_bottom = 432*2
 
-
+func load_pause_menu():
+	var pausemenu = preload("res://UI/PauseMenu.tscn").instance()
+	get_tree().paused = true
+	add_child(pausemenu)
+	
+func _physics_process(delta):
+	if Input.is_action_just_pressed("pause_game"): 
+		load_pause_menu()
 func _on_over_border(): 
 #	var camera = player.get_node("Camera2D")
 #	camera.limit_bottom = 432*2

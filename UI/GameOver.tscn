@@ -10,11 +10,11 @@
 size = 80
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 26
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.109804, 0.0470588, 0.0470588, 1 )
 border_width_bottom = 3
 border_color = Color( 0.419608, 0.27451, 0.27451, 1 )
@@ -26,8 +26,8 @@ expand_margin_top = 7.0
 expand_margin_bottom = 6.0
 
 [sub_resource type="Theme" id=3]
-Button/fonts/font = SubResource( 4 )
-Button/styles/normal = SubResource( 2 )
+Button/fonts/font = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -339,9 +339,9 @@ stretch_mode = 6
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
 visible = false
-margin_top = 54.0
-margin_right = 228.0
-margin_bottom = 68.0
+margin_top = 290.0
+margin_right = 298.0
+margin_bottom = 304.0
 text = "Press Enter to return to Main Menu."
 align = 1
 
