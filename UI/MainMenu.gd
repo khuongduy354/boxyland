@@ -11,9 +11,7 @@ func update_mute_butt():
 	else:
 		$Mus.pressed = false
 #		$Mus.text = "Music"
-func _physics_process(delta):
-	if Input.is_action_just_pressed("menu_tap"): 
-		Input.action_press("space")
+
 func _ready():
 	hiscore.update_score( ScoreSaver.load_score())
 	AudioManager.play(AudioManager.MAIN)

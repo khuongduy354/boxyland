@@ -75,7 +75,7 @@ func title_move(delta):
 		anims.play("chickenfall")
 	else: 
 		anims.play("chickenjump")
-	if Input.is_action_just_pressed("space") and $jump_cooldown.is_stopped(): 
+	if Input.is_action_just_pressed("press") and $jump_cooldown.is_stopped(): 
 		jump() 
 		is_jumping=true
 		$jump_cooldown.start()
@@ -86,7 +86,7 @@ func move():
 		anims.play("chickenfall")
 	else: 
 		anims.play("chickenjump")
-	if Input.is_action_just_released("menu_tap") and $jump_cooldown.is_stopped(): 
+	if Input.is_action_just_released("press") and $jump_cooldown.is_stopped(): 
 		jump() 
 		is_jumping=true
 		$jump_cooldown.start()
