@@ -4,14 +4,19 @@ class_name Box
 signal rotating
 signal rotated
 
-
-export var should_spawn = true
-onready var map=$rotation_pivot/TileMap
 const MobList = {
 	"VegMob": preload("res://Enemy/VegMob.tscn")
 }
+
+export var should_spawn = true
+export var mob_extra_speed = 0
+
+onready var map=$rotation_pivot/TileMap
 onready var rot_pivot = $rotation_pivot
 onready var a_player = $AnimationPlayer
+onready var spawn_timer = $SpawnRate
+
+
 var rng = RandomNumberGenerator.new()
 # every X seconds, spawn 1, at random location 
 
@@ -58,6 +63,7 @@ func spawn_mob(mob_type,pos):
 	veg.position = pos
 	veg.global_position = pos
 	veg.z_index =-2
+	veg.speed+=mob_extra_speed
 	
 	map.add_child(veg)
 func get_from_pos(map:TileMap, coord: Vector2): 

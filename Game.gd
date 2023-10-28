@@ -5,6 +5,7 @@ onready var player = $World.player
 onready var playerUI = $PlayerUI
 onready var camPivot = $World/pivot
 onready var anim_s = $AnimationPlayer
+onready var box = $World/Box
 
 var player_score = 0 setget set_score 
 
@@ -60,4 +61,9 @@ func _on_landed_black():
 	Global.circle_trans_to("res://UI/GameOver.tscn",1.5)
 
 func _on_score_timer_timeout():
-	set_score(player_score+1)
+	var new_score = player_score+1
+	set_score(new_score)
+	
+	# adjust difficulties 
+	box.spawn_timer.wait_time = Global.score_to_spawnrate(new_score)
+	box.mob_extra_speed = Global.score_to_extra_speed(new_score)
