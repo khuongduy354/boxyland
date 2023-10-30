@@ -71,6 +71,7 @@ position = Vector2( 0, -216 )
 [node name="SwipeDetector" parent="." instance=ExtResource( 9 )]
 
 [node name="SideButtons" parent="." instance=ExtResource( 10 )]
+visible = false
 
 [connection signal="swipe" from="SwipeDetector" to="." method="_on_SwipeDetector_swipe"]
 [connection signal="center" from="SideButtons" to="." method="_on_SideButtons_center"]

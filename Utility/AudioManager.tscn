@@ -22,7 +22,6 @@ volume_db = 20.0
 [node name="Withdraw" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
 volume_db = 5.0
-pitch_scale = 0.8
 
 [node name="Collide" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
