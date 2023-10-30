@@ -22,9 +22,9 @@ func _process(delta):
 				if abs(startPos.y - currPos.y) <= threshold: 
 					# which direction
 					if(startPos.x - currPos.x) > 0: 
-						emit_signal("swipe",Vector2.LEFT)
-					else: 
 						emit_signal("swipe",Vector2.RIGHT)
+					else: 
+						emit_signal("swipe",Vector2.LEFT)
 					isSwiping = false 
 	else: 
 		isSwiping = false

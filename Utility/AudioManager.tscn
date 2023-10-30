@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/sfx/chicken/jump2.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/sfx/chicken/jump3.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/chicken/hit.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/sfx/whoosh-6316.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/sfx/chicken/gameover.mp3" type="AudioStream" id=4]
