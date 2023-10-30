@@ -62,6 +62,8 @@ func _on_landed_black():
 
 func _on_score_timer_timeout():
 	var new_score = player_score+1
+	if Global.score_to_veg_path(new_score)!=Global.score_to_veg_path(player_score): 
+		AudioManager.play(AudioManager.CONGRATS)
 	set_score(new_score)
 	
 	# adjust difficulties 

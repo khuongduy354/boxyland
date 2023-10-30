@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gamemusic.mp3-1c36aab8625c4b5e1469665ecaa9c3db.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/gamemusic.mp3"
+dest_files=[ "res://.import/gamemusic.mp3-1c36aab8625c4b5e1469665ecaa9c3db.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
