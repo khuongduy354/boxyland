@@ -3,7 +3,8 @@ extends Node
 signal circled_in
 
 var temp_player = null
-var temp_score = null
+var temp_score = 0
+var new_record = false
 
 func circle_trans_to(path: String,speed = 1.0): 
 	var circle_trans = preload("res://Utility/CircleTransition.tscn").instance()

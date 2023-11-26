@@ -2,9 +2,9 @@ extends Node2D
 
 onready var box = $Box
 onready var player = $ChickenPlayer
-onready var swipeDetector = $SwipeDetector
+#onready var swipeDetector = $SwipeDetector
 func _ready():
-	swipeDetector.connect("swipe",self,"_on_swipe")
+#	swipeDetector.connect("swipe",self,"_on_swipe")
 	box.connect("rotating",self,"on_rotating")
 	box.connect("rotated",self,"on_rotated")
 	
@@ -56,6 +56,6 @@ func _on_SideButtons_center():
 func _on_SideButtons_left():
 	rotate_trigger(Vector2.LEFT)
 
-
-func _on_SwipeDetector_swipe(dir:Vector2):	
-	rotate_trigger(dir)
+#
+#func _on_SwipeDetector_swipe(dir:Vector2):	
+#	rotate_trigger(dir)

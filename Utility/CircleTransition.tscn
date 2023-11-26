@@ -55,6 +55,7 @@ tracks/0/keys = {
 }
 
 [node name="CircleTrans" type="CanvasLayer"]
+pause_mode = 2
 layer = 2
 script = ExtResource( 2 )
 

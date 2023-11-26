@@ -20,12 +20,13 @@ func _ready():
 	player.connect("player_die",self,"_on_player_die")
 	player.connect("landed_black",self,"_on_landed_black")
 	player.connect("over_border",self,"_on_over_border")
-	
+
 func score_handler(): 
 	$score_timer.stop() 
 	var highscore = ScoreSaver.load_score()
 	if player_score > highscore: 
 		ScoreSaver.save_score(player_score)
+		Global.new_record = true
 	Global.temp_score = player_score
 
 func _on_player_die():
@@ -69,4 +70,14 @@ func _on_score_timer_timeout():
 	# adjust difficulties 
 	box.spawn_timer.wait_time = Global.score_to_spawnrate(new_score)
 	box.mob_extra_speed = Global.score_to_extra_speed(new_score)
+
+
+
+func _on_Panel_focus_entered():
+	get_tree().paused = false
+	$Instruction.queue_free()
+
+
+func _on_Panel_tree_entered():
+	get_tree().paused = true
 
