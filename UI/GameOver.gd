@@ -5,7 +5,8 @@ onready var animp = $AnimationPlayer
 onready var curr_score =$CenterContainer/VBoxContainer/curr_hiscore
 onready var highest_score = $CenterContainer/VBoxContainer/highest_score
 onready var veggie_icon = $CenterContainer/VBoxContainer/Control/TextureRect
-
+func check_new_high(): 
+	$CenterContainer/VBoxContainer/NewRecord.visible = Global.new_record
 func load_score_label(): 
 	curr_score.text += " " + str(Global.temp_score)
 	var hiscore = ScoreSaver.load_score()
@@ -14,10 +15,15 @@ func load_score_label():
 	return Global.temp_score
 func _ready():
 	AudioManager.play(AudioManager.OVER)
-	var current_score = load_score_label()
 	
+	# load icon based on score
+	var current_score = load_score_label()
 	var path = Global.score_to_veg_path(current_score)
 	veggie_icon.texture = load(path)
+	
+	# show stars if new record
+	
+	check_new_high()
 	animp.play("gameover_down")
 	
 

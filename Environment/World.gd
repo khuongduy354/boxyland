@@ -29,7 +29,11 @@ func on_rotating():
 	
 	box.set_physics_process(false)
 	
-
+func _physics_process(delta):
+	if Input.is_action_just_pressed("right"): 
+		rotate_trigger(Vector2.RIGHT)
+	if Input.is_action_just_pressed("left"): 
+		rotate_trigger(Vector2.LEFT)
 
 func rotate_trigger(dir:Vector2): 
 	if player.hitted: 
