@@ -7,8 +7,8 @@ func _ready():
 #	swipeDetector.connect("swipe",self,"_on_swipe")
 	box.connect("rotating",self,"on_rotating")
 	box.connect("rotated",self,"on_rotated")
-	
 	player.global_position = $player_spawn.global_position
+	
 	
 	
 	box.should_spawn=true
@@ -34,7 +34,6 @@ func _physics_process(delta):
 		rotate_trigger(Vector2.RIGHT)
 	if Input.is_action_just_pressed("left"): 
 		rotate_trigger(Vector2.LEFT)
-
 func rotate_trigger(dir:Vector2): 
 	if player.hitted: 
 		return

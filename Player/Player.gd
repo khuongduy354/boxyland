@@ -1,4 +1,6 @@
 extends KinematicBody2D
+class_name Player 
+
 signal player_die
 signal landed_black
 signal over_border
@@ -14,8 +16,8 @@ onready var fpivot = $flip_pivot
 export var is_game_title = false
 export var title_move_speed = 4000 
 
-export var max_health = 1
-var current_health = max_health setget set_hp
+#export var max_health = 1
+#var current_health = max_health setget set_hp
 export var accel = 5 
 export var jump_height = 200
 export var GRAVITY = 10
@@ -24,26 +26,24 @@ export var MAX_GRAVITY = 100
 var is_jumping=false
 var is_invin = false
 var hitted =false
+
 func flip(inp:String): 
 	if inp == "right": 
 		fpivot.scale.x=-1 
 	elif inp == "left": 
 		fpivot.scale.x=1
-func set_hp(value): 
-	current_health = value
-	if current_health <=0: 
-		die()
+#func set_hp(value): 
+#	current_health = value
+#	if current_health <=0: 
+#		die()
 
-func to_game_over_mode(): 
-#	collisionshape.set_deferred("disabled",true) 
-	hurtboxshape.set_deferred("disabled",true)
 
+func set_hurtbox(val: bool): 
+	hurtboxshape.set_deferred("disabled", val)
+	
 func die(): 
 	emit_signal("player_die")
-#	queue_free()
 	
-func _ready():
-	pass 
 
 var game_over_jumped = false
 func _physics_process(delta):
@@ -51,12 +51,8 @@ func _physics_process(delta):
 		title_move(delta) 
 	else: 
 		if hitted: 
-#			if global_position.y >=432 and global_position.y < 432*3/2: 
-#				emit_signal("over_border")
-			var should_to_gameover = game_over_jumped and is_on_floor()
-			if should_to_gameover: 
+			if game_over_jumped and is_on_floor(): 
 				emit_signal("landed_black")
-				set_physics_process(false)
 				return
 			anims.play("chickenhit")
 			veloc.y += GRAVITY * 1.5 
@@ -65,8 +61,10 @@ func _physics_process(delta):
 		else: 	
 			move()
 
+
 var title_state = "idle" # idle, moving, jumping
 var dir = [-1,1][randi()%2]
+
 func title_move(delta): 
 	veloc.y += GRAVITY 
 	if is_on_floor():
@@ -104,16 +102,12 @@ func receive_hit(hitbox:Hitbox):
 	if is_invin: 
 		return
 		
-	# TODO: touch not mature  = die instantly, matured = -health
-#	if not hitbox.owner.mature: 
-#		die()
-#		return
-	set_hp(current_health-hitbox.damage)
-#	is_invin =true
-#	$Hurtbox.set_deferred("monitoring",false)
+
+#	set_hp(current_health-hitbox.damage)
+	emit_signal("player_die")
 	veloc.y = -jump_height * 1.5 
+	set_hurtbox(true)
 	hitted = true
-#	$InvinTimer.start()
 	AudioManager.stop_all()
 	AudioManager.play(AudioManager.COLLIDE)
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var player = $World.player
+onready var player = $World.player as Player
 onready var playerUI = $PlayerUI
 onready var camPivot = $World/pivot
 onready var anim_s = $AnimationPlayer
@@ -19,10 +19,8 @@ func _ready():
 	
 	player.connect("player_die",self,"_on_player_die")
 	player.connect("landed_black",self,"_on_landed_black")
-	player.connect("over_border",self,"_on_over_border")
 
 func score_handler(): 
-	$score_timer.stop() 
 	var highscore = ScoreSaver.load_score()
 	if player_score > highscore: 
 		ScoreSaver.save_score(player_score)
@@ -30,8 +28,10 @@ func score_handler():
 	Global.temp_score = player_score
 
 func _on_player_die():
+	$score_timer.stop() 
 	score_handler()
-	player.to_game_over_mode()
+
+
 #	var camera = player.get_node("Camera2D")
 #	camera.current=true
 #	if player.global_position.y < 432/2: 
@@ -45,21 +45,21 @@ func load_pause_menu():
 func _physics_process(delta):
 	if Input.is_action_just_pressed("pause_game"): 
 		load_pause_menu()
-func _on_over_border(): 
-#	var camera = player.get_node("Camera2D")
-#	camera.limit_bottom = 432*2
-	pass
-#	camPivot.scale.y=-1
 	
 func _on_landed_black(): 
-#	anim_s.play("game_over_transistion")
-#	yield(anim_s,"animation_finished")
-	yield(get_tree().create_timer(.1),"timeout")
-#	$World.remove_child(player)	
-	get_tree().root.add_child(player)
-#	remove_child(player)
-	Global.temp_player = player
-	Global.circle_trans_to("res://UI/GameOver.tscn",1.5)
+	if MobileAds.get_is_rewarded_loaded():
+		$Revive.visible = true
+		$Revive/ads_timeout.start()
+	else:
+		_on_Revive_ads_timeouted() 
+	
+
+func _to_gameover(): 
+	$CircleTrans.animp.play("circle_in")
+	yield(Global,"circled_in")
+	get_tree().change_scene("res://UI/GameOver.tscn")
+
+ 
 
 func _on_score_timer_timeout():
 	var new_score = player_score+1
@@ -81,3 +81,23 @@ func _on_Panel_focus_entered():
 func _on_Panel_tree_entered():
 	get_tree().paused = true
 
+
+
+func _on_Revive_ads_timeouted():
+	$Revive.visible = false
+	_to_gameover()
+
+
+func _on_Revive_ads_watched():
+	$score_timer.start() 
+	player.global_position = $World/player_spawn.global_position
+	$Revive.visible = false
+	player.hitted = false
+	player.game_over_jumped = false
+	player.set_physics_process(true)
+	
+	player.animp.play("blink")
+	player.veloc.y = 0
+	yield(get_tree().create_timer(3),"timeout")
+	player.animp.stop()
+	player.set_hurtbox(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/SideButtons.gd" type="Script" id=1]
 
@@ -6,6 +6,10 @@
 
 [sub_resource type="Theme" id=2]
 Button/styles/normal = SubResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -30,6 +34,8 @@ margin_right = 50.0
 margin_bottom = 432.0
 rect_min_size = Vector2( 50, 0 )
 theme = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 
 [node name="tap" type="Button" parent="HBoxContainer"]
 margin_left = 54.0
@@ -49,6 +55,8 @@ margin_right = 432.0
 margin_bottom = 432.0
 rect_min_size = Vector2( 50, 0 )
 theme = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 
 [connection signal="pressed" from="HBoxContainer/left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="HBoxContainer/tap" to="." method="_on_tap_pressed"]

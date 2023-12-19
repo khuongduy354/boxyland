@@ -5,7 +5,10 @@ signal circled_in
 var temp_player = null
 var temp_score = 0
 var new_record = false
-
+func _ready(): 
+	MobileAds.initialize()
+	MobileAds.load_rewarded()
+		
 func circle_trans_to(path: String,speed = 1.0): 
 	var circle_trans = preload("res://Utility/CircleTransition.tscn").instance()
 	get_tree().root.add_child(circle_trans)

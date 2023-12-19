@@ -43,3 +43,7 @@ func _on_rate_us_pressed():
 
 func _on_Close_pressed():
 	Global.circle_trans_to("res://Utility/AutoExitNode.tscn")
+
+
+func _on_Shop_pressed():
+	get_tree().change_scene("res://addons/admob/test/Example.tscn")

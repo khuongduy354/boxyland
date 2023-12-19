@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/UI/shop/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/btn/restart.png" type="Texture" id=2]
+[ext_resource path="res://UI/Revive.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 1298, 952 )
+
+[node name="Revive" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 116.0
+margin_top = 116.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 200, 200 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/CenterContainer"]
+margin_left = 34.0
+margin_top = 32.0
+margin_right = 166.0
+margin_bottom = 168.0
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/PanelContainer/CenterContainer/VBoxContainer"]
+margin_right = 132.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 132.0
+margin_bottom = 118.0
+text = "Watch ads to revive?"
+align = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 122.0
+margin_right = 132.0
+margin_bottom = 136.0
+text = "3"
+align = 1
+
+[node name="ads_timeout" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/CenterContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="timeout" from="ads_timeout" to="." method="_on_ads_timeout_timeout"]

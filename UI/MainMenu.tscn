@@ -1020,5 +1020,6 @@ shape = SubResource( 24 )
 one_way_collision = true
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Shop" to="." method="_on_Shop_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Close" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="Mus" to="." method="_on_Mus_pressed"]
