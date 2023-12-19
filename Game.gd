@@ -49,7 +49,7 @@ func _physics_process(delta):
 func _on_landed_black(): 
 	if MobileAds.get_is_rewarded_loaded():
 		$Revive.visible = true
-		$Revive/ads_timeout.start()
+		$Revive.start_timer()
 	else:
 		_on_Revive_ads_timeouted() 
 	
@@ -101,3 +101,5 @@ func _on_Revive_ads_watched():
 	yield(get_tree().create_timer(3),"timeout")
 	player.animp.stop()
 	player.set_hurtbox(false)
+	
+	$Revive.timer_disable = false
