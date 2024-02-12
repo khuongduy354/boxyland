@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Environment/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/World.gd" type="Script" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/3.png" type="Texture" id=6]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 6/4.png" type="Texture" id=7]
 [ext_resource path="res://kenney_pixelplatformerfarmexpansion/craftpix-net-665906-free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 7/1.png" type="Texture" id=8]
-[ext_resource path="res://Utility/SwipeDetector.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/SideButtons.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="SideButtons" parent="." instance=ExtResource( 10 )]
 
 [node name="Box" parent="." instance=ExtResource( 1 )]
 
@@ -61,11 +62,6 @@ position = Vector2( 216, 432 )
 [node name="camtracker" type="Position2D" parent="pivot"]
 position = Vector2( 0, -216 )
 
-[node name="SwipeDetector" parent="." instance=ExtResource( 9 )]
-
-[node name="SideButtons" parent="." instance=ExtResource( 10 )]
-
-[connection signal="swipe" from="SwipeDetector" to="." method="_on_SwipeDetector_swipe"]
 [connection signal="center" from="SideButtons" to="." method="_on_SideButtons_center"]
 [connection signal="left" from="SideButtons" to="." method="_on_SideButtons_left"]
 [connection signal="right" from="SideButtons" to="." method="_on_SideButtons_right"]

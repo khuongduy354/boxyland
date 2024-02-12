@@ -74,7 +74,7 @@ layer = 5
 visible = false
 
 [node name="CircleTrans" parent="." instance=ExtResource( 6 )]
-layer = 4
+layer = 3
 
 [connection signal="timeout" from="score_timer" to="." method="_on_score_timer_timeout"]
 [connection signal="focus_entered" from="Instruction/Panel" to="." method="_on_Panel_focus_entered"]

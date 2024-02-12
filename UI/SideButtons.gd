@@ -16,17 +16,20 @@ func _ready():
 
 
 func _on_left_pressed():
+	print("left")
 	emit_signal("left")
-	pass # Replace with function body.
 
 
 func _on_right_pressed():
+	print("right")
 	emit_signal("right")
 
 	pass # Replace with function body.
 
 
 func _on_tap_pressed():
+	print("center")
+
 	emit_signal("center")
 	
 	pass # Replace with function body.

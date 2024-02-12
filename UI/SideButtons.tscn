@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/SideButtons.gd" type="Script" id=1]
 
@@ -7,9 +7,9 @@
 [sub_resource type="Theme" id=2]
 Button/styles/normal = SubResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=10]
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=11]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -21,7 +21,12 @@ Button/styles/normal = SubResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
 [node name="SideButtons" type="CanvasLayer"]
+layer = 4
 script = ExtResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -29,13 +34,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="left" type="Button" parent="HBoxContainer"]
-self_modulate = Color( 1, 1, 1, 0.266667 )
+self_modulate = Color( 1, 1, 1, 0.47451 )
 margin_right = 50.0
 margin_bottom = 432.0
 rect_min_size = Vector2( 50, 0 )
 theme = SubResource( 2 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 
 [node name="tap" type="Button" parent="HBoxContainer"]
 margin_left = 54.0
